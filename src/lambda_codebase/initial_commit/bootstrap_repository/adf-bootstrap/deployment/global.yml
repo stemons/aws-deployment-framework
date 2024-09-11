@@ -1193,7 +1193,9 @@ Resources:
               StringEquals:
                 aws:PrincipalOrgID: !Ref OrganizationId
               ArnLike:
-                aws:PrincipalArn: 'arn:aws:iam::*:role/adf-codecommit-role'
+                aws:PrincipalArn: 
+                  - 'arn:aws:iam::*:role/adf-codecommit-role'
+                  - 'arn:aws:iam::*:role/adf-codebuild-role'
             Resource:
               - !Sub arn:${AWS::Partition}:s3:::${PipelineBucket}/*
             Principal:
